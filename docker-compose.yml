@@ -1,8 +1,21 @@
 version: '3'
 
 services:
+  app:
+    build:
+      context: ./node
+    container_name: app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./node:/usr/share/app
+    depends_on:
+      - mysql
+    networks:
+      - local
+
   mysql:
-    image: mysql:8.4.0
+    image: mysql:5.7
     container_name: mysql
     restart: always
     environment:
