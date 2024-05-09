@@ -5,12 +5,21 @@ services:
     build:
       context: ./node
     container_name: app
-    ports:
-      - "3000:3000"
     volumes:
       - ./node:/usr/share/app
     depends_on:
       - mysql
+    networks:
+      - local
+
+  nginx:
+    build:
+      context: ./nginx
+    container_name: nginx
+    ports:
+      - "8080:8080"
+    depends_on:
+      - app
     networks:
       - local
 
@@ -30,7 +39,6 @@ services:
 
 volumes:
   mysql_data:
-
 
 networks:
   local:

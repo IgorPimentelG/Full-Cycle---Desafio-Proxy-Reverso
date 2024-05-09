@@ -1,12 +1,11 @@
 const express = require('express');
-const { faker } = require('@faker-js/faker');
 const { connection } = require('./db');
-const app = express();
 
 const PORT = 3000;
+const app = express();
 
 app.get('/', (_, res) => {
-  connection.query(`INSERT INTO people(name) VALUES('${faker.person.firstName()}')`);
+  connection.query(`INSERT INTO people(name) VALUES('Dev Full Cycle')`);
   connection.query(`SELECT name FROM people`, (_, result) => {
     const names = result.map(element => element.name);
     res.send(`
