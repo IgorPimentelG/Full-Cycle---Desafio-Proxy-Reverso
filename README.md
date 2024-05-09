@@ -1,5 +1,5 @@
 # Full Cycle 3.0 - Desafio Proxy Reverso
-[![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)]
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
 ## Resultados
 Para solucionar o problema, foi criado uma imagem para a aplicação node que se comunica diretamente com o mysql, outra imagem contém o servidor nginx com as configurações de redirecionamento. O docker-compose foi utilizado para gerenciar todos os containers e aplicar configurações de volumes e rede. Para o mysql, foi utilizado um script para criar a tabela no banco automaticamente ao inciar o container.
