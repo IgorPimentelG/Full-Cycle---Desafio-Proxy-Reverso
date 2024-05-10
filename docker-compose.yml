@@ -7,6 +7,7 @@ services:
     container_name: app
     volumes:
       - ./node:/usr/share/app
+      - app_data:/usr/share/app
     depends_on:
       - mysql
     networks:
@@ -33,12 +34,13 @@ services:
       - MYSQL_ROOT_PASSWORD=admin
     volumes:
       - mysql_data:/var/lib/mysql
-      - ./mysql/schema.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - local
 
 volumes:
   mysql_data:
+  app_data:
 
 networks:
   local:
